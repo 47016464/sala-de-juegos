@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-quien-soy',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],  // 👈 IMPORTS CORRECTOS
+  imports: [CommonModule],
   templateUrl: './quien-soy.html',
   styleUrls: ['./quien-soy.css']
 })
-export class QuienSoyComponent {
-  userData: any;
+export class QuienSoyComponent implements OnInit {
+  userData: any = null;
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // Al cargar la sección, trae automáticamente tus datos de GitHub
     this.http.get('https://api.github.com/users/47016464')
-      .subscribe(data => this.userData = data);
+      .subscribe({
+        next: (data) => this.userData = data,
+        error: (err) => console.error('Error al traer datos de GitHub', err)
+      });
   }
 }

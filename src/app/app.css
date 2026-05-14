@@ -1,27 +1,42 @@
-nav {
+.navbar {
+  display: flex;
+  justify-content: space-between; /* izquierda, centro, derecha */
+  align-items: center;
+  background-color: #0d1b3d; /* azul oscuro */
+  padding: 10px;
+}
+
+.nav-left {
   display: flex;
   gap: 10px;
+}
+
+.nav-center {
+  flex-grow: 1;
+  display: flex;
   justify-content: center;
-  margin: 20px 0;
 }
 
-button[routerLink] {
-  padding: 10px 20px;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
-button[routerLink]:hover {
-  background-color: #1565c0;
-}
-
-a.btn {
-  padding: 10px 20px;
-  margin: 5px;
+.btn {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #222222;
+  transform: scale(1.05);
+}
+
+.active {
+  background-color: #444444;
 }
