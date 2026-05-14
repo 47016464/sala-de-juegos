@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fondo general */
+body {
+  background-color: #003366; /* azul marino más claro */
+  color: #000000; /* texto negro por defecto */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav {
+  background-color: #001a33; /* azul marino oscuro */
+  padding: 10px;
+}
+
+nav a {
+  color: #000000; /* enlaces en negro */
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #333333; /* negro más suave al pasar el mouse */
+}
+
+/* Botones */
+button {
+  background-color: #000000; /* negro */
+  color: #ffffff; /* texto blanco para contraste */
+  border: 2px solid #333333;
+  border-radius: 6px;
+  padding: 10px 20px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #222222; /* negro más claro */
+  transform: scale(1.05);
+}
+
+/* Mensaje de bienvenida */
+.welcome-message {
+  color: #000000; /* letras negras */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Subtexto debajo del mensaje */
+.welcome-subtext {
+  color: #000000; /* también negro */
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+}
+
+/* Links generales */
+a {
+  color: #000000;
+}
+
+a:hover {
+  color: #333333;
+}
