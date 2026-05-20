@@ -12,7 +12,7 @@ import { GithubUser } from '../models/github-user';
 })
 export class QuienSoyComponent implements OnInit {
   userData = signal<GithubUser | null>(null);
-
+  
   constructor(private githubService: GithubService) {}
 
   ngOnInit() {
