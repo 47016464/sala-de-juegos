@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { CommonModule } from '@angular/common';
 import {
   RouterOutlet,
   Router,
@@ -10,19 +12,27 @@ import {
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
     RouterLink,
     RouterLinkActive
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class AppComponent {
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public authService: AuthService
+  ) {}
 
   goTo(path: string) {
     this.router.navigate([path]);
   }
 
-} 
+  logout() {
+    this.authService.logout(); 
+    this.router.navigate(['/home']); 
+  }
+}

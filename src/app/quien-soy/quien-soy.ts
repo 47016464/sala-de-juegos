@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GithubService } from '../services/github.service';
+import { GithubUser } from '../models/github-user';
 
 @Component({
   selector: 'app-quien-soy',
@@ -10,16 +11,14 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./quien-soy.css']
 })
 export class QuienSoyComponent implements OnInit {
-  userData: any = null;
-
-  constructor(private http: HttpClient) {}
+  userData = signal<GithubUser | null>(null);
+  
+  constructor(private githubService: GithubService) {}
 
   ngOnInit() {
-    // Al cargar la sección, trae automáticamente tus datos de GitHub
-    this.http.get('https://api.github.com/users/47016464')
-      .subscribe({
-        next: (data) => this.userData = data,
-        error: (err) => console.error('Error al traer datos de GitHub', err)
-      });
+    this.githubService.getUserData().subscribe({
+      next: (data) => this.userData.set(data),
+      error: (err) => console.error('Error al traer datos de GitHub:', err)
+    });
   }
 }

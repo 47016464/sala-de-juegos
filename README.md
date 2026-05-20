@@ -1,59 +1,56 @@
-# SalaDeJuegos
+# Sala de Juegos - Sprint 1
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+## Alumno
+- **Nombre:** Augusto Bottazzi
 
-## Development server
+## 🚀 Deploy
+[Vercel - Proyecto en línea](https://sala-de-juegos-aeb-git-sprint-1-47016464s-projects.vercel.app/home)
 
-To start a local development server, run:
+## 🛠️ Tecnologías usadas
+- Angular
+- Bootstrap 
+- Vercel
 
-```bash
-ng serve
-```
+## 📌 Sprint 1
+En este sprint se implementaron las siguientes funcionalidades:
+- Navbar funcional.
+- Favicon personalizado.
+- Sección **Quién Soy** con datos obtenidos automáticamente desde la API de GitHub.
+- Idea del juego propio: *Esquivar Cajas* (descripción y reglas incluidas en la sección).
+- Mejoras visuales:
+  - Cambio de color de la página para una experiencia más agradable.
+  - Reordenamiento de elementos para mejorar la claridad y navegación.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+# Sala de Juegos - Sprint 2
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Alumno
+- **Nombre:** Augusto Bottazzi
 
-```bash
-ng generate component component-name
-```
+## 🚀 Deploy
+[Enlace al proyecto en Vercel](https://sala-de-juegos-aeb-git-sprint-2-47016464s-projects.vercel.app/home)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Tecnologías utilizadas
+- Angular
+- Supabase (Auth + Base de datos)
+- Bootstrap / CSS propio
+- Vercel (deploy)
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📌 Sprint 2
+- **Componente Home**:
+  - Es el componente principal.
+  - Si el usuario NO está logueado → muestra botones de Registro e Inicio de sesión.
+  - Si el usuario está logueado → muestra su nombre/email y botón de Cerrar sesión.
+  - Implementación de **Guards** para bloquear rutas protegidas (juegos, listados).
+- **Inicio de sesión**:
+  - Validación contra Supabase con correo y contraseña.
+  - Navegación automática al Home si es exitoso.
+  - Mensaje de error en caso de credenciales inválidas.
+  - Tres botones de inicio rápido con usuarios de prueba.
+- **Registro**:
+  - Formulario con correo, nombre, apellido, edad y contraseña.
+  - Creación de cuenta en Supabase Auth (email + password).
+  - Inserción de datos adicionales en tabla `usuarios` (sin contraseña).
+  - Inicio de sesión automático tras registro exitoso.
+  - Mensaje si el usuario ya se encuentra registrado.

@@ -3,8 +3,24 @@
 <nav class="navbar">
   <!-- Izquierda -->
   <div class="nav-left">
-    <a routerLink="/registro" routerLinkActive="active" class="btn">Registro</a>
-    <a routerLink="/login" routerLinkActive="active" class="btn">Login</a>
+    <!-- no logueado -->
+    <a *ngIf="!authService.isLoggedIn()" 
+       routerLink="/registro" 
+       routerLinkActive="active" 
+       class="btn">Registro</a>
+
+    <a *ngIf="!authService.isLoggedIn()" 
+       routerLink="/login" 
+       routerLinkActive="active" 
+       class="btn">Login</a>
+
+    <!-- logueado -->
+    <span *ngIf="authService.isLoggedIn()" class="user-info">
+      Hola, {{ authService.getUserName() }}
+    </span>
+    <button *ngIf="authService.isLoggedIn()" 
+            (click)="logout()" 
+            class="btn">Cerrar Sesión</button>
   </div>
 
   <!-- Centro -->
