@@ -1,10 +1,37 @@
 <h1>Sala de Juegos</h1>
 
-<nav>
-  <button (click)="goTo('/')">Home</button>
-  <button (click)="goTo('/login')">Login</button>
-  <button (click)="goTo('/registro')">Registro</button>
-  <button (click)="goTo('/quien-soy')">Quién Soy</button>
+<nav class="navbar">
+  <!-- Izquierda -->
+  <div class="nav-left">
+    <!-- no logueado -->
+    <a *ngIf="!authService.isLoggedIn()" 
+       routerLink="/registro" 
+       routerLinkActive="active" 
+       class="btn">Registro</a>
+
+    <a *ngIf="!authService.isLoggedIn()" 
+       routerLink="/login" 
+       routerLinkActive="active" 
+       class="btn">Login</a>
+
+    <!-- logueado -->
+    <span *ngIf="authService.isLoggedIn()" class="user-info">
+      Hola, {{ authService.getUserName() }}
+    </span>
+    <button *ngIf="authService.isLoggedIn()" 
+            (click)="logout()" 
+            class="btn">Cerrar Sesión</button>
+  </div>
+
+  <!-- Centro -->
+  <div class="nav-center">
+    <a routerLink="/home" routerLinkActive="active" class="btn">Home</a>
+  </div>
+
+  <!-- Derecha -->
+  <div class="nav-right">
+    <a routerLink="/quien-soy" routerLinkActive="active" class="btn">Quién Soy</a>
+  </div>
 </nav>
 
 <router-outlet></router-outlet>

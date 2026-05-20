@@ -1,2 +1,16 @@
-<h2>Bienvenido a la Sala de Juegos</h2>
-<p>Selecciona una opción en el menú superior.</p>
+<div class="home-container">
+  <h1>Bienvenido a Sala de Juegos</h1>
+
+  <!-- no logueado -->
+  <div *ngIf="!authService.isLoggedIn()">
+    <p>Para jugar y ver listados, iniciá sesión o registrate desde el menú superior.</p>
+  </div>
+
+  <!-- logueado -->
+  <div *ngIf="authService.isLoggedIn()">
+    <div class="acciones">
+      <a routerLink="/juegos" class="btn">Ir a Juegos </a>
+      <a routerLink="/listados" class="btn"> Ver Listados</a>
+    </div>
+  </div>
+</div>

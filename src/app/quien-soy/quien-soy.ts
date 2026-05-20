@@ -1,21 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { GithubService } from '../services/github.service';
+import { GithubUser } from '../models/github-user';
 
 @Component({
   selector: 'app-quien-soy',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],  // 👈 IMPORTS CORRECTOS
+  imports: [CommonModule],
   templateUrl: './quien-soy.html',
   styleUrls: ['./quien-soy.css']
 })
-export class QuienSoyComponent {
-  userData: any;
+export class QuienSoyComponent implements OnInit {
+  userData = signal<GithubUser | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private githubService: GithubService) {}
 
-  ngOnInit(): void {
-    this.http.get('https://api.github.com/users/47016464')
-      .subscribe(data => this.userData = data);
+  ngOnInit() {
+    this.githubService.getUserData().subscribe({
+      next: (data) => this.userData.set(data),
+      error: (err) => console.error('Error al traer datos de GitHub:', err)
+    });
   }
 }

@@ -1,9 +1,25 @@
-<div *ngIf="userData">
-  <img [src]="userData.avatar_url" width="150">
-  <p><strong>Nombre:</strong> {{ userData.name }}</p>
-  <p><strong>Usuario:</strong> {{ userData.login }}</p>
-  <p><strong>Bio:</strong> {{ userData.bio }}</p>
+<div class="quien-soy-container" *ngIf="userData() as datos">
+  <h2>Quién Soy</h2>
+  <img [src]="datos.avatar_url" alt="Avatar" width="120" style="border-radius: 50%;">
+  <p><strong>Usuario:</strong> {{ datos.login }}</p>
+  <p><strong>Nombre:</strong> {{ datos.name }}</p>
+  <p><strong>Bio:</strong> {{ datos.bio }}</p>
+  <p><strong>Repos públicos:</strong> {{ datos.public_repos }}</p>
+  <p><strong>Seguidores:</strong> {{ datos.followers }}</p>
+  <p><strong>Siguiendo:</strong> {{ datos.following }}</p>
+  <a [href]="datos.html_url" target="_blank">Ver perfil en GitHub</a>
+  <!-- Juego propio -->
+  <h3>Mi Juego Propio</h3>
+  <p>
+    Elegí desarrollar un juego de <strong>Esquivar Cajas</strong>.  
+    El objetivo es moverte hacia la izquierda o derecha para evitar las cajas que caen desde la parte superior de la pantalla.
+  </p>
+  <p>
+    <strong>Cómo jugar:</strong><br>
+    - Usá las teclas de dirección (← →) para moverte.<br>
+    - Las cajas caen continuamente desde arriba.<br>
+    - Cada vez que una caja logra pasar la parte inferior de la pantalla sin chocar con vos, sumás <strong>1 punto</strong>.<br>
+    - Si una caja te golpea, el juego termina y aparece la opción de <em>"Retry"</em> para volver a intentarlo.<br>
+    - El objetivo es esquivar la mayor cantidad posible y alcanzar el puntaje más alto.
+  </p>
 </div>
-
-<h3>Mi juego propio</h3>
-<p>Aquí explico cuál es mi juego, cómo se juega y por qué lo elegí.</p>
