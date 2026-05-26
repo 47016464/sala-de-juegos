@@ -1,0 +1,150 @@
+<div class="ahorcado-container">
+
+  <h2>Juego: Ahorcado</h2>
+
+  <!-- TIMER -->
+
+  <p
+    *ngIf="tiempoRestante > 0"
+    class="timer">
+
+    ⏰ Tiempo restante:
+    {{ tiempoRestante }}s
+
+  </p>
+
+  <!-- DIBUJO -->
+
+  <div class="ahorcado-dibujo">
+
+    <div class="poste"></div>
+
+    <div class="barra"></div>
+
+    <div class="soga"></div>
+
+    <div
+      class="cabeza"
+      *ngIf="errores >= 1">
+    </div>
+
+    <div
+      class="cuerpo"
+      *ngIf="errores >= 2">
+    </div>
+
+    <div
+      class="brazo-izq"
+      *ngIf="errores >= 3">
+    </div>
+
+    <div
+      class="brazo-der"
+      *ngIf="errores >= 4">
+    </div>
+
+    <div
+      class="pierna-izq"
+      *ngIf="errores >= 5">
+    </div>
+
+    <div
+      class="pierna-der"
+      *ngIf="errores >= 6">
+    </div>
+
+  </div>
+
+  <!-- PALABRA -->
+
+  <div class="palabra">
+
+    <span
+      *ngFor="let letra of obtenerPalabraOculta()">
+
+      {{
+        letrasSeleccionadas.includes(letra)
+          ? letra
+          : '_'
+      }}
+
+    </span>
+
+  </div>
+
+  <!-- LETRAS -->
+
+  <div class="letras-grid">
+
+    <button
+      *ngFor="let letra of letrasDisponibles"
+
+      (click)="seleccionarLetra(letra)"
+
+      [disabled]="
+        letrasSeleccionadas.includes(letra)
+        || juegoTerminado
+      ">
+
+      {{ letra }}
+
+    </button>
+
+  </div>
+
+  <!-- ERRORES -->
+
+  <p class="errores">
+
+    Errores:
+    {{ errores }}/{{ maxErrores }}
+
+  </p>
+
+  <!-- MENSAJE -->
+
+  <p
+    class="mensaje"
+    *ngIf="mensaje">
+
+    {{ mensaje }}
+
+  </p>
+
+  <!-- BOTONES FINAL -->
+
+  <div
+    class="acciones-final"
+    *ngIf="juegoTerminado">
+
+    <!-- GANAR -->
+
+    <ng-container *ngIf="victoria">
+
+      <button
+        class="continuar-btn"
+        (click)="continuarJuego()">
+
+        Continuar
+
+      </button>
+
+    </ng-container>
+
+    <!-- PERDER -->
+
+    <ng-container *ngIf="!victoria">
+
+      <button
+        class="reiniciar-btn"
+        (click)="iniciarJuego()">
+
+        Reintentar
+
+      </button>
+
+    </ng-container>
+
+  </div>
+
+</div>

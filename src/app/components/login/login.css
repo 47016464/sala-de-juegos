@@ -1,0 +1,162 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: flex-start; /* MISMA ALTURA */
+  gap: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #fff;
+  box-shadow: none;
+  border: none;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #ffffff;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #fdfdfd;
+}
+
+.title::after {
+  animation: pulse 1s linear infinite;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #1a1a1a;
+  color: #fff;
+  width: 100%;
+  padding: 25px 10px 10px 10px;
+  outline: 0;
+  border: 1px solid #555;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #fdfdfd;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #555; /* 👈 gris igual al navbar */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #555; /* 👈 mantiene el gris, efecto suave */
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+/* LOGIN RAPIDO */
+.quick-login {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+
+  padding: 20px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  min-width: 220px;
+}
+
+/* TITULO */
+.quick-login p {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+/* BOTONES */
+.quick-login button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.quick-login button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #3a3a3a, #4a4a4a);
+}

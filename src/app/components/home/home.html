@@ -1,0 +1,127 @@
+<div class="home-container">
+
+  <h1>Bienvenido</h1>
+
+  <div *ngIf="!authService.isLoggedIn()">
+
+    <p>
+      Regístrate o Inicia Sesión
+      para acceder a los juegos.
+    </p>
+
+  </div>
+
+  <div *ngIf="authService.isLoggedIn()">
+
+    <p>
+      Hola,
+      {{ authService.getUserName() }}
+    </p>
+
+    <!-- CHAT -->
+
+    <div class="chat-button-container">
+
+      <ul>
+
+        <li
+          style="--i:#56CCF2;--j:#2F80ED;"
+          routerLink="/chat"
+        >
+
+          <span class="icon">💬</span>
+
+          <span class="title">
+            Chat
+          </span>
+
+        </li>
+
+
+    </div>
+
+    <!-- JUEGOS -->
+
+    <div class="games-grid">
+
+      <!-- AHORCADO -->
+
+      <div class="card">
+
+        <img
+          src="assets/img/ahorcado.png"
+          alt="Ahorcado"
+        >
+
+        <div class="card__content">
+
+          <p class="card__title">
+            Ahorcado
+          </p>
+
+          <p class="card__description">
+
+            Descubre la palabra
+            seleccionando letras
+            del abecedario.
+
+          </p>
+
+          <button
+            [routerLink]="['/juegos/ahorcado']"
+          >
+            Jugar
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- MAYOR MENOR -->
+
+      <div class="card">
+
+        <img
+          src="assets/img/mayor-menor.png"
+          alt="Mayor o Menor"
+        >
+
+        <div class="card__content">
+
+          <p class="card__title">
+            Mayor o Menor
+          </p>
+
+          <p class="card__description">
+
+            Adivina si la próxima carta
+            será mayor o menor.
+
+          </p>
+
+          <button
+            [routerLink]="['/juegos/mayor-menor']"
+          >
+            Jugar
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- PREGUNTADOS -->
+
+      
+      </div>
+
+      <!-- MONKEY JUMP -->
+
+      
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

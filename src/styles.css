@@ -1,71 +1,87 @@
-/* Fondo general */
+.navbar a.active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* espacio normal */
+  padding: 1rem;
+  background-color: #111;
+}
+
+/* Cuando está logueado */
+.navbar-logged {
+  gap: 3rem; /* espacio extendido */
+}
+
+/* Fondo global */
 body {
-  background-color: #003366; /* azul marino más claro */
-  color: #000000; /* texto negro por defecto */
-  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* negro no tan oscuro */
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  font-family: "Times New Roman", Times, serif; /* tipografía */
+  color: #ffffff; /* texto blanco por defecto */
 }
 
-/* Navbar */
-nav {
-  background-color: #001a33; /* azul marino oscuro */
-  padding: 10px;
+/* Encabezados y párrafos en Times New Roman */
+h1, h2, h3, h4, h5, h6, p, span, a {
+  font-family: "Times New Roman", Times, serif;
+  color: #ffffff;
 }
 
-nav a {
-  color: #000000; /* enlaces en negro */
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
+.user-profile {
+  width: 131px;
+  height: 51px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(
+    to bottom right,
+    #2e8eff 0%,
+    rgba(46, 142, 255, 0) 30%
+  );
+  background-color: rgba(46, 142, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-nav a:hover {
-  color: #333333; /* negro más suave al pasar el mouse */
+.user-profile:hover,
+.user-profile:focus {
+  background-color: rgba(25, 29, 32, 0.7);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
-/* Botones */
-button {
-  background-color: #000000; /* negro */
-  color: #ffffff; /* texto blanco para contraste */
-  border: 2px solid #333333;
-  border-radius: 6px;
-  padding: 10px 20px;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+.user-profile-inner {
+  width: 127px;
+  height: 47px;
+  border-radius: 13px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #fff;
+  font-weight: 600;
 }
 
-button:hover {
-  background-color: #222222; /* negro más claro */
-  transform: scale(1.05);
+.user-profile-inner svg {
+  width: 27px;
+  height: 27px;
+  fill: #fff;
 }
 
-/* Mensaje de bienvenida */
-.welcome-message {
-  color: #000000; /* letras negras */
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
+.main-title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  color: #ffffff;
+  text-align: center;       /* centra horizontal */
+  margin-top: 2rem;         /* baja un poco para no tapar navbar */
 }
 
-/* Subtexto debajo del mensaje */
-.welcome-subtext {
-  color: #000000; /* también negro */
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Encabezados */
-h1, h2, h3, h4, h5, h6 {
-  color: #000000;
-}
-
-/* Links generales */
-a {
-  color: #000000;
-}
-
-a:hover {
-  color: #333333;
-}

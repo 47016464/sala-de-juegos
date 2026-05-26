@@ -1,0 +1,43 @@
+<div class="chat-container">
+
+  <div class="messages">
+
+    <div
+      *ngFor="let msg of messages()"
+      class="message"
+      [class.mine]="msg.user_id === user.id"
+    >
+
+      <div class="header">
+
+        <strong>
+          {{ msg.email }}
+        </strong>
+
+        <span>
+          {{ msg.created_at | date:'HH:mm' }}
+        </span>
+
+      </div>
+
+      <p>{{ msg.content }}</p>
+
+    </div>
+
+  </div>
+
+  <div class="input-area">
+
+    <input
+      [(ngModel)]="newMessage"
+      placeholder="Escribí un mensaje..."
+      (keyup.enter)="sendMessage()"
+    />
+
+    <button (click)="sendMessage()">
+      Enviar
+    </button>
+
+  </div>
+
+</div>

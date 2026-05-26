@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GithubService } from '../services/github.service';
-import { GithubUser } from '../models/github-user';
+import { GithubService } from '../../services/github.service';
+import { GithubUser } from '../../models/github-user';
 
 @Component({
   selector: 'app-quien-soy',
