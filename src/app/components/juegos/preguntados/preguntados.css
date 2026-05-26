@@ -1,0 +1,89 @@
+.container {
+
+  color: white;
+
+  text-align: center;
+
+  padding: 40px;
+
+}
+
+.pregunta {
+
+  font-size: 24px;
+
+  margin-top: 30px;
+
+  margin-bottom: 30px;
+
+}
+
+.opciones {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  max-width: 500px;
+
+  margin-inline: auto;
+
+}
+
+button {
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  background: #2F80ED;
+
+  color: white;
+
+  transition: 0.3s;
+
+}
+
+button:hover {
+
+  background: #56CCF2;
+
+}
+
+.puntaje {
+
+  margin-top: 30px;
+
+  font-size: 22px;
+
+}
+
+.barra-fallos {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.fallo-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #374151;
+  border: 2px solid #6b7280;
+  transition: all 0.3s;
+}
+
+.fallo-dot.activo {
+  background: #dc2626;
+  border-color: #b91c1c;
+  box-shadow: 0 0 8px #dc2626;
+}

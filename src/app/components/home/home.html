@@ -37,6 +37,14 @@
 
         </li>
 
+        <!-- RESULTADOS -->
+    <li style="--i:#27AE60;--j:#219653;" routerLink="/resultados">
+      <span class="icon">📊</span>
+      <span class="title">Resultados</span>
+    </li>
+
+
+      </ul>
 
     </div>
 
@@ -111,12 +119,65 @@
 
       <!-- PREGUNTADOS -->
 
-      
+      <div class="card">
+
+        <img
+          src="assets/img/preguntados.png"
+          alt="Preguntados"
+        >
+
+        <div class="card__content">
+
+          <p class="card__title">
+            Pokémon Trivia
+          </p>
+
+          <p class="card__description">
+
+            Responde preguntas
+            sobre el mundo Pokémon.
+
+          </p>
+
+          <button
+            [routerLink]="['/juegos/preguntados']"
+          >
+            Jugar
+          </button>
+
+        </div>
+
       </div>
 
       <!-- MONKEY JUMP -->
 
-      
+      <div class="card">
+
+        <img
+          src="assets/img/monkey-jump.png"
+          alt="Monkey Jump"
+        >
+
+        <div class="card__content">
+
+          <p class="card__title">
+            Monkey Jump
+          </p>
+
+          <p class="card__description">
+
+            Salta obstáculos y
+            consigue el mejor puntaje.
+
+          </p>
+
+          <button
+            [routerLink]="['/juegos/monkey-jump']"
+          >
+            Jugar
+          </button>
+
+        </div>
 
       </div>
 

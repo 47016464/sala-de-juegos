@@ -110,3 +110,47 @@ En este sprint se trabajó fuertemente en la **mejora visual de la aplicación**
 - Estética general más atractiva y profesional.
 
 ---
+
+# Sala de Juegos - Sprint 4
+
+## 👤 Alumno
+- **Nombre:** Augusto Bottazzi
+
+## 🚀 Deploy
+[Vercel - Proyecto en línea](https://sala-de-juegos-aeb-git-sprint-1-47016464s-projects.vercel.app/home)
+
+## 🛠️ Tecnologías usadas
+- Angular
+- Supabase (Base de datos + Realtime)
+- Bootstrap / PrimeNG
+- Vercel
+
+## 📌 Sprint 4
+En este sprint se implementaron las siguientes funcionalidades:
+
+### 🎮 Juegos
+- **Preguntados**: integrado y guardando resultados con usuario, puntaje y tiempo.
+- **Monkey Jump**: agregado a la sección de resultados con formato uniforme.
+
+### 📊 Ranking y listados
+- Ranking global de usuarios según puntaje acumulado.
+- Listado de partidas jugadas con detalle de usuario, puntaje y fecha.
+
+### 🎨 Mejoras visuales
+- Animaciones y transiciones en botones y pantallas.
+- Feedback visual en aciertos y errores.
+- Estética general más atractiva y consistente.
+
+### 🚀 Deploy
+- Proyecto desplegado en Vercel.
+- README actualizado con descripción de Sprint 4.
+
+---
+
+## ✅ Conclusión
+La plataforma ahora cuenta con:
+- Todos los juegos integrados.
+- Resultados uniformes.
+- Ranking global.
+- Chat en tiempo real.
+- Mejoras visuales significativas.
