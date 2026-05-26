@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>⚡ Preguntados Pokémon</h1>
+
+  <!-- Cargando -->
+  <div *ngIf="cargando" class="estado-carga">
+    <div class="spinner"></div>
+    <p>Cargando Pokémon...</p>
+  </div>
+
+  <!-- Juego activo -->
+  <div *ngIf="!cargando && preguntaActual && !juegoTerminado">
+
+    <div class="progreso">
+      <span>Pregunta {{ numeroPregunta + 1 }}</span>
+      
+      <span>⭐ {{ puntaje }}</span>
+    </div>
+
+    <div class="barra-fallos">
+      <div
+        class="fallo-dot"
+        *ngFor="let f of [0,1,2]"
+        [class.activo]="f < fallos">
+      </div>
+    </div>
+
+    <div class="pregunta-card">
+      <p class="pregunta-texto" [innerHTML]="preguntaActual.enunciado"></p>
+    </div>
+
+    <div class="opciones">
+      <button
+        *ngFor="let op of preguntaActual.opciones"
+        (click)="responder(op)"
+        [disabled]="!!seleccionada"
+        [class.correcta]="!!seleccionada && op === preguntaActual.correcta"
+        [class.incorrecta]="seleccionada === op && !esCorrecta"
+        [innerHTML]="op">
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Sin preguntas -->
+  <div *ngIf="!cargando && !preguntaActual && !juegoTerminado">
+    <p>No se pudieron cargar las preguntas.</p>
+    <button class="btn-reiniciar" (click)="reiniciar()">Reintentar 🔄</button>
+  </div>
+
+  <!-- Resultado final -->
+  <div *ngIf="juegoTerminado" class="resultado">
+    <h2>¡Juego terminado! 🎉</h2>
+    <div class="score-circle">{{ puntaje }}</div>
+    <p class="mensaje-final">{{ puntaje }} respuestas correctas en {{ numeroPregunta }} preguntas</p>
+    <p class="mensaje-final">{{ mensajeFinal() }}</p>
+    <p *ngIf="guardando" class="guardando">💾 Guardando resultado...</p>
+    <p *ngIf="!guardando" class="guardado">✅ Resultado guardado</p>
+    <button class="btn-reiniciar" (click)="reiniciar()">Jugar de nuevo 🔄</button>
+  </div>
+
+</div>

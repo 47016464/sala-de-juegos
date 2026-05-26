@@ -1,0 +1,25 @@
+.resultados-container {
+  color: white;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: rgba(255,255,255,0.2);
+}

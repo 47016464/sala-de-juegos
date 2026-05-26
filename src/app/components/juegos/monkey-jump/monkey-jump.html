@@ -1,0 +1,46 @@
+<div class="game-container">
+
+  <canvas
+    #gameCanvas
+    width="400"
+    height="700">
+  </canvas>
+
+  <!-- SCORE -->
+  <div class="score">
+    {{ score }}
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="controls">
+
+    <button
+      (mousedown)="izquierda()"
+      (touchstart)="izquierda()">
+      ⬅️
+    </button>
+
+    <button
+      (mousedown)="derecha()"
+      (touchstart)="derecha()">
+      ➡️
+    </button>
+
+  </div>
+
+  <!-- GAME OVER -->
+  <div
+    class="game-over"
+    *ngIf="gameOver">
+
+    <h1>GAME OVER</h1>
+
+    <button
+      type="button"
+      (click)="reiniciarJuego()">
+      Reintentar
+    </button>
+
+  </div>
+
+</div>
