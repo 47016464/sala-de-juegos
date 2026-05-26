@@ -1,0 +1,26 @@
+.quien-soy-container {
+  margin-top: 20px;
+  color: #000000;
+  display: flex;
+  justify-content: center;   
+  align-items: center;       
+  flex-direction: column;    
+  text-align: center;        
+}
+
+/* Datos de GitHub alineados a la izquierda */
+.datos-github {
+  text-align: center; 
+  margin: 20px auto; 
+}
+
+.datos-github img {
+  display: block;
+  margin-bottom: 0 auto 10px auto; /* centra la imagen horizontalmente */
+}
+.datos-github p {
+  margin: 5px 0;
+}
+section, div, main {
+  background: transparent;
+}

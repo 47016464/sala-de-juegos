@@ -1,0 +1,102 @@
+<div class="game-container">
+
+  <h1>🃏 Mayor o Menor</h1>
+
+  <div class="score">
+    Aciertos: {{ aciertos }}
+  </div>
+
+  <!-- PANTALLA INICIAL -->
+
+  <div
+    *ngIf="!juegoIniciado"
+    class="inicio"
+  >
+
+    <h2>
+      ¿Listo para jugar?
+    </h2>
+
+    <button
+      class="jugar-btn"
+      (click)="iniciarJuego()"
+    >
+      ▶ Jugar
+    </button>
+
+  </div>
+
+  <!-- JUEGO -->
+
+  <div *ngIf="juegoIniciado">
+
+    <!-- CARTA -->
+
+    <div
+      class="card-container"
+      *ngIf="cartaActual"
+    >
+
+      <img
+        class="card"
+        [src]="cartaActual.image"
+        alt="Carta"
+      >
+
+    </div>
+
+    <!-- PREGUNTA -->
+
+    <p
+      class="pregunta"
+      *ngIf="!gameOver"
+    >
+      ¿La próxima carta será
+      mayor o menor?
+    </p>
+
+    <!-- BOTONES -->
+
+    <div
+      class="buttons"
+      *ngIf="!gameOver"
+    >
+
+      <button
+        class="mayor"
+        (click)="jugar('mayor')"
+      >
+        ⬆ Mayor
+      </button>
+
+      <button
+        class="menor"
+        (click)="jugar('menor')"
+      >
+        ⬇ Menor
+      </button>
+
+    </div>
+
+    <!-- MENSAJE -->
+
+    <div
+      class="mensaje"
+      *ngIf="mensaje"
+    >
+      {{ mensaje }}
+    </div>
+
+    <!-- REINICIAR -->
+
+    <button
+      *ngIf="gameOver"
+      class="reiniciar"
+      (click)="iniciarJuego()"
+    >
+      🔄 Jugar otra vez
+    </button>
+
+  </div>
+
+</div>

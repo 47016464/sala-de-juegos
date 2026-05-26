@@ -1,0 +1,140 @@
+/* Centrar el formulario en la pantalla */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 👈 en vez de center, lo sube */
+  min-height: 100vh;
+  padding-top: 60px; /* 👈 espacio desde arriba */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* más espacio entre casilleros */
+  max-width: 350px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: transparent; /* 👈 sin fondo sólido */
+  color: #fff;
+  box-shadow: none; /* 👈 sin sombra */
+  border: none; /* 👈 sin borde */
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #ffffff;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #fdfdfd;
+}
+
+.title::after {
+  animation: pulse 1s linear infinite;
+}
+
+.message, 
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: #00bfff;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #1a1a1a; /* 👈 se funde con la página */
+  color: #fff;
+  width: 100%;
+  padding: 25px 10px 10px 10px;
+  outline: 0;
+  border: 1px solid #555; /* opcional, podés quitarlo también */
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #fdfdfd;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #555; /* 👈 gris igual al de la barra */
+  cursor: pointer;        /* 👈 mano al pasar, más clickeable */
+  transition: background-color 0.3s ease; /* 👈 efecto suave */
+}
+
+.submit:hover {
+  background-color: #555; /* 👈 un gris más claro al pasar */
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}

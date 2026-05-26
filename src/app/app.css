@@ -1,9 +1,9 @@
 .navbar {
   display: flex;
-  justify-content: space-between; /* izquierda, centro, derecha */
-  align-items: center;
-  background-color: #0d1b3d; /* azul oscuro */
-  padding: 10px;
+  justify-content: center; /* centra todos los botones */
+  gap: 1rem;               /* separación uniforme */
+  padding: 1rem;
+  background-color: #111;  /* fondo navbar */
 }
 
 .nav-left {
@@ -40,3 +40,8 @@
 .active {
   background-color: #444444;
 }
+section, div, main {
+  background: transparent;
+}
+
+

@@ -1,0 +1,36 @@
+<div class="container">
+  <form class="form" (ngSubmit)="registrar()">
+    <p class="title">Registro</p>
+
+    <div class="flex">
+      <label>
+        <input [(ngModel)]="nombre" name="nombre" class="input" type="text" placeholder="" required>
+        <span>Nombre</span>
+      </label>
+
+      <label>
+        <input [(ngModel)]="apellido" name="apellido" class="input" type="text" placeholder="" required>
+        <span>Apellido</span>
+      </label>
+    </div>  
+
+    <label>
+      <input [(ngModel)]="email" name="email" class="input" type="email" placeholder="" required>
+      <span>Email</span>
+    </label> 
+
+    <label>
+      <input [(ngModel)]="password" name="password" class="input" type="password" placeholder="" required>
+      <span>Contraseña</span>
+    </label>
+
+    <label>
+      <input [(ngModel)]="edad" name="edad" class="input" type="number" placeholder="" required>
+      <span>Edad</span>
+    </label>
+
+    <button type="submit" class="submit">Registrarse</button>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </form>
+</div>

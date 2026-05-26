@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form" (ngSubmit)="login()">
+    <p class="title">Login</p>
+
+    <label>
+      <input [(ngModel)]="email" name="email" class="input" type="email" placeholder="" required>
+      <span>Email</span>
+    </label>
+
+    <label>
+      <input [(ngModel)]="password" name="password" class="input" type="password" placeholder="" required>
+      <span>Contraseña</span>
+    </label>
+
+    <button type="submit" class="submit">Ingresar</button>
+
+    <!-- Mensaje de error -->
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </form>
+
+    <div class="quick-login">
+      <p class="message">Inicio rápido </p>
+      <button (click)="quickLogin('augusebottazzi@gmail.com','avellaneda')">
+        <span class="button_top">Usuario 1</span>
+      </button>
+      <button (click)="quickLogin('augustoezequielbottazzi@gmail.com','sarandi')">
+        <span class="button_top">Usuario 2</span>
+      </button>
+      <button (click)="quickLogin('pepejuarez@gmail.com','123456')">
+        <span class="button_top">Usuario 3</span>
+      </button>
+    </div>
+</div>

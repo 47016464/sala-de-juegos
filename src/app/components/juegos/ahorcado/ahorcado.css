@@ -1,0 +1,340 @@
+.ahorcado-container {
+
+  text-align: center;
+
+  color: white;
+
+  padding: 20px;
+}
+
+/* ========================= */
+/* TIMER */
+/* ========================= */
+
+.timer {
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  color: gold;
+
+  margin-bottom: 15px;
+}
+
+/* ========================= */
+/* PALABRA */
+/* ========================= */
+
+.palabra {
+
+  margin: 20px 0;
+
+  font-size: 38px;
+
+  letter-spacing: 10px;
+
+  font-weight: bold;
+}
+
+/* ========================= */
+/* LETRAS */
+/* ========================= */
+
+.letras-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 10px;
+
+  max-width: 500px;
+
+  margin: auto;
+}
+
+.letras-grid button {
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background-color: #1f2937;
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.letras-grid button:hover {
+
+  background-color: #374151;
+
+  transform: scale(1.05);
+}
+
+.letras-grid button:disabled {
+
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* ========================= */
+/* MENSAJES */
+/* ========================= */
+
+.mensaje {
+
+  margin-top: 20px;
+
+  font-size: 26px;
+
+  font-weight: bold;
+}
+
+.errores {
+
+  margin-top: 15px;
+
+  font-size: 20px;
+}
+
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
+.acciones-final {
+
+  margin-top: 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.continuar-btn,
+.reiniciar-btn,
+.menu-btn {
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.continuar-btn {
+
+  background-color: #16a34a;
+
+  color: white;
+}
+
+.reiniciar-btn {
+
+  background-color: crimson;
+
+  color: white;
+}
+
+.menu-btn {
+
+  background-color: #2563eb;
+
+  color: white;
+}
+
+.continuar-btn:hover,
+.reiniciar-btn:hover,
+.menu-btn:hover {
+
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* AHORCADO */
+/* ========================= */
+
+.ahorcado-dibujo {
+
+  position: relative;
+
+  width: 220px;
+
+  height: 300px;
+
+  margin: 20px auto;
+}
+
+/* poste */
+
+.poste {
+
+  position: absolute;
+
+  left: 40px;
+
+  width: 10px;
+
+  height: 250px;
+
+  background: white;
+}
+
+/* barra */
+
+.barra {
+
+  position: absolute;
+
+  left: 40px;
+
+  top: 0;
+
+  width: 100px;
+
+  height: 10px;
+
+  background: white;
+}
+
+/* soga */
+
+.soga {
+
+  position: absolute;
+
+  left: 140px;
+
+  top: 0;
+
+  width: 4px;
+
+  height: 40px;
+
+  background: white;
+}
+
+/* cabeza */
+
+.cabeza {
+
+  position: absolute;
+
+  top: 40px;
+
+  left: 120px;
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 4px solid white;
+
+  border-radius: 50%;
+}
+
+/* cuerpo */
+
+.cuerpo {
+
+  position: absolute;
+
+  top: 80px;
+
+  left: 140px;
+
+  width: 4px;
+
+  height: 70px;
+
+  background: white;
+}
+
+/* brazos */
+
+.brazo-izq {
+
+  position: absolute;
+
+  top: 100px;
+
+  left: 115px;
+
+  width: 30px;
+
+  height: 4px;
+
+  background: white;
+
+  transform: rotate(-30deg);
+}
+
+.brazo-der {
+
+  position: absolute;
+
+  top: 100px;
+
+  left: 140px;
+
+  width: 30px;
+
+  height: 4px;
+
+  background: white;
+
+  transform: rotate(30deg);
+}
+
+/* piernas */
+
+.pierna-izq {
+
+  position: absolute;
+
+  top: 155px;
+
+  left: 118px;
+
+  width: 30px;
+
+  height: 4px;
+
+  background: white;
+
+  transform: rotate(-45deg);
+}
+
+.pierna-der {
+
+  position: absolute;
+
+  top: 155px;
+
+  left: 140px;
+
+  width: 30px;
+
+  height: 4px;
+
+  background: white;
+
+  transform: rotate(45deg);
+}

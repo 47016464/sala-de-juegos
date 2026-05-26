@@ -54,3 +54,59 @@ En este sprint se implementaron las siguientes funcionalidades:
   - Inserción de datos adicionales en tabla `usuarios` (sin contraseña).
   - Inicio de sesión automático tras registro exitoso.
   - Mensaje si el usuario ya se encuentra registrado.
+
+  ---
+  # Sala de Juegos - Sprint 3
+
+## 👤 Alumno
+- **Nombre:** Augusto Bottazzi
+
+## 🚀 Deploy
+[Vercel - Proyecto en línea](https://sala-de-juegos-aeb-git-sprint-1-47016464s-projects.vercel.app/home)
+
+## 🛠️ Tecnologías usadas
+- Angular
+- Supabase (Base de datos + Realtime)
+- Bootstrap / PrimeNG
+- Vercel
+
+## 📌 Sprint 3
+En este sprint se implementaron las siguientes funcionalidades:
+
+### 🎮 Juego: Ahorcado
+- Interfaz con botones para todas las letras del abecedario (entrada solo por clic, no teclado).
+- Lógica completa de partida con detección de victoria/derrota.
+- Al finalizar la partida se guarda en la base de datos:
+  - Usuario que jugó.
+  - Tiempo de finalización.
+  - Cantidad de letras seleccionadas.
+  - Palabra utilizada.
+
+### 🎮 Juego: Mayor o Menor
+- Se muestra una carta de la baraja y el jugador debe adivinar si la siguiente será mayor o menor.
+- Lógica completa de aciertos y fallos.
+- Al finalizar la partida se guarda en la base de datos:
+  - Usuario que jugó.
+  - Cantidad de cartas acertadas.
+
+### 💬 Sala de Chat
+- Chat global disponible para usuarios logueados.
+- Envío de mensajes en tiempo real.
+- Cada mensaje se guarda en la base de datos con:
+  - Usuario que lo envió.
+  - Texto del mensaje.
+  - Fecha y hora de envío.
+- Suscripción en tiempo real: los mensajes nuevos aparecen automáticamente en todos los clientes.
+- Diferenciación visual entre mensajes propios y ajenos.
+
+---
+
+## 🎨 Mejoras visuales
+En este sprint se trabajó fuertemente en la **mejora visual de la aplicación**:
+- Interfaces más limpias y organizadas.
+- Botones estilizados y consistentes.
+- Animaciones y transiciones que mejoran la experiencia de usuario.
+- Diferenciación clara de elementos interactivos.
+- Estética general más atractiva y profesional.
+
+---

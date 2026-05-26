@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient } from '@supabase/supabase-js';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +12,37 @@ export class AuthService {
   );
   private user: any = null;
 
+  constructor(private router: Router) {
+    // 🚨 Escucha cambios globales de sesión
+    this.supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT' || !session) {
+        this.user = null;
+        this.router.navigate(['/home']); // Redirige SIEMPRE al menú
+      }
+    });
+  }
+
   async login(email: string, password: string): Promise<boolean> {
     const { data, error } = await this.supabase.auth.signInWithPassword({ email, password });
     if (error) throw error;
-    this.user = data.user;
-    return !!data.user;
+
+    const { data: userData } = await this.supabase.auth.getUser();
+    this.user = userData?.user;
+
+    return !!this.user;
   }
 
   async register(user: { email: string, password: string, nombre: string, apellido: string, edad: number | null }): Promise<boolean> {
     const { data, error } = await this.supabase.auth.signUp({
       email: user.email,
-      password: user.password
+      password: user.password,
+      options: {
+        data: {
+          nombre: user.nombre,
+          apellido: user.apellido,
+          edad: user.edad
+        }
+      }
     });
 
     if (error) {
@@ -42,9 +63,10 @@ export class AuthService {
     return true;
   }
 
-  logout() {
-    this.supabase.auth.signOut();
+  async logout() {
+    await this.supabase.auth.signOut();
     this.user = null;
+    this.router.navigate(['/home']); // 🚨 Redirige al menú incluso si se llama manualmente
   }
 
   isLoggedIn(): boolean {
@@ -52,6 +74,11 @@ export class AuthService {
   }
 
   getUserName(): string {
-    return this.user?.email || '';
+    return this.user?.user_metadata?.nombre || this.user?.email || '';
+  }
+
+  async getUser() {
+    const { data: { user } } = await this.supabase.auth.getUser();
+    return user;
   }
 }
