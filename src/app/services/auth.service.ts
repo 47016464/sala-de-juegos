@@ -13,14 +13,39 @@ export class AuthService {
   private user: any = null;
 
   constructor(private router: Router) {
-    // 🚨 Escucha cambios globales de sesión
-    this.supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT' || !session) {
-        this.user = null;
-        this.router.navigate(['/home']); // Redirige SIEMPRE al menú
-      }
+
+  this.supabase.auth.getSession()
+    .then(({ data }) => {
+
+      this.user =
+        data.session?.user || null;
+
     });
-  }
+
+  this.supabase.auth.onAuthStateChange(
+    (event, session) => {
+
+      if (session?.user) {
+
+        this.user = session.user;
+
+      }
+
+      if (
+        event === 'SIGNED_OUT'
+        || !session
+      ) {
+
+        this.user = null;
+
+        this.router.navigate(['/home']);
+
+      }
+
+    }
+  );
+
+}
 
   async login(email: string, password: string): Promise<boolean> {
     const { data, error } = await this.supabase.auth.signInWithPassword({ email, password });
@@ -52,12 +77,14 @@ export class AuthService {
       throw error;
     }
 
-    await this.supabase.from('usuarios').insert({
-      email: user.email,
-      nombre: user.nombre,
-      apellido: user.apellido,
-      edad: user.edad ?? null
-    });
+    await this.supabase
+  .from('usuarios')
+  .insert([{
+    email: user.email,
+    nombre: user.nombre,
+    apellido: user.apellido,
+    edad: user.edad ?? null
+  }]);
 
     this.user = data.user;
     return true;
@@ -74,8 +101,14 @@ export class AuthService {
   }
 
   getUserName(): string {
-    return this.user?.user_metadata?.nombre || this.user?.email || '';
-  }
+
+  return (
+    this.user?.user_metadata?.nombre
+    || this.user?.email
+    || 'Jugador'
+  );
+
+}
 
   async getUser() {
     const { data: { user } } = await this.supabase.auth.getUser();

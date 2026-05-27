@@ -5,11 +5,20 @@
   <!-- TIMER -->
 
   <p
-    *ngIf="tiempoRestante > 0"
+    *ngIf="tiempoRestante() > 0"
     class="timer">
 
     ⏰ Tiempo restante:
-    {{ tiempoRestante }}s
+    {{ tiempoRestante() }}s
+
+  </p>
+
+  <!-- PUNTAJE -->
+
+  <p class="puntaje">
+
+    ⭐ Puntaje:
+    {{ puntaje }}
 
   </p>
 

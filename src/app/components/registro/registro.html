@@ -25,9 +25,17 @@
     </label>
 
     <label>
-      <input [(ngModel)]="edad" name="edad" class="input" type="number" placeholder="" required>
-      <span>Edad</span>
-    </label>
+  <input
+    [(ngModel)]="edad"
+    name="edad"
+    class="input"
+    type="number"
+    min="0"
+    placeholder=""
+    required
+  >
+  <span>Edad</span>
+</label>
 
     <button type="submit" class="submit">Registrarse</button>
 

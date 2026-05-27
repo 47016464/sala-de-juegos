@@ -34,12 +34,12 @@
 
     <div
       class="card-container"
-      *ngIf="cartaActual"
+      *ngIf="cartaActual()"
     >
 
       <img
         class="card"
-        [src]="cartaActual.image"
+        [src]="cartaActual().image"
         alt="Carta"
       >
 

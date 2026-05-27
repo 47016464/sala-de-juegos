@@ -1,0 +1,236 @@
+<div class="admin-container">
+
+  <h1>
+    📊 Panel de Encuestas
+  </h1>
+
+  <!-- STATS -->
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+
+      <h2>
+        {{ totalEncuestas() }}
+      </h2>
+
+      <p>
+        Encuestas Totales
+      </p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>
+        {{ promedioEdad() }}
+      </h2>
+
+      <p>
+        Edad Promedio
+      </p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>
+        {{ generoMasElegido() }}
+      </h2>
+
+      <p>
+        Género Más Elegido
+      </p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>
+        {{ aspectoMasElegido() }}
+      </h2>
+
+      <p>
+        Aspecto Más Valorado
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ENCUESTA -->
+
+  <div
+    *ngIf="
+      encuestas().length > 0
+    "
+    class="encuesta-card"
+  >
+
+    <div class="nav-buttons">
+
+      <button
+        (click)="anteriorEncuesta()"
+        [disabled]="encuestaActual === 0"
+      >
+        ⬅ Más reciente
+      </button>
+
+      <button
+        (click)="siguienteEncuesta()"
+        [disabled]="
+          encuestaActual ===
+          encuestas().length - 1
+        "
+      >
+        Más antigua ➡
+      </button>
+
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-item">
+
+        <span>
+          Usuario
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .usuario
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <span>
+          Fecha
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .created_at
+              | date:'dd/MM/yyyy HH:mm'
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <span>
+          Nombre
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .nombre
+          }}
+
+          {{
+            encuestas()[encuestaActual]
+              .apellido
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <span>
+          Edad
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .edad
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <span>
+          Género Favorito
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .genero_favorito
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <span>
+          Aspectos Favoritos
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .aspectos_favoritos
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <span>
+          Horas de Juego
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .horas_juego
+          }}
+        </p>
+
+      </div>
+
+      <div class="info-item full">
+
+        <span>
+          Top 3 Juegos
+        </span>
+
+        <p>
+          {{
+            encuestas()[encuestaActual]
+              .comentario
+          }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTÓN VOLVER -->
+
+  <div class="volver-container">
+
+    <a
+      routerLink="/encuesta"
+      class="volver-btn"
+    >
+      ⬅ Volver a Encuesta
+    </a>
+
+  </div>
+
+</div>

@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./registro.css']
 })
 export class RegistroComponent {
+
   email: string = '';
   nombre: string = '';
   apellido: string = '';
@@ -19,26 +20,66 @@ export class RegistroComponent {
   password: string = '';
   error: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   async registrar() {
+
+  if (!this.email.includes('@')) {
+
+    this.error =
+      'Ingrese un email válido';
+
+    return;
+  }
+    
+    if (this.edad === null || this.edad < 0) {
+
+      this.error =
+        'La edad no puede ser negativa';
+
+      return;
+    }
+
     try {
-      const success = await this.authService.register({
-        email: this.email,
-        password: this.password,
-        nombre: this.nombre,
-        apellido: this.apellido,
-        edad: this.edad
-      });
+
+      const success =
+        await this.authService.register({
+
+          email: this.email,
+          password: this.password,
+          nombre: this.nombre,
+          apellido: this.apellido,
+          edad: this.edad
+
+        });
 
       if (success) {
-        await this.authService.login(this.email, this.password);
+
+        await this.authService.login(
+          this.email,
+          this.password
+        );
+
         this.router.navigate(['/home']);
+
       } else {
-        this.error = 'El usuario ya se encuentra registrado';
+
+        this.error =
+          'El usuario ya se encuentra registrado';
+
       }
+
     } catch (err: any) {
-      this.error = err.message || 'Error al registrar usuario';
+
+      this.error =
+        err.message ||
+        'Error al registrar usuario';
+
     }
+
   }
+
 }
