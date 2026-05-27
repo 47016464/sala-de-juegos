@@ -1,6 +1,11 @@
-<div class="home-container">
+<div 
+  @fade
+  class="home-container"
+  >
 
   <h1>Bienvenido</h1>
+
+  <!-- MENSAJE SI NO ESTÁ LOGUEADO -->
 
   <div *ngIf="!authService.isLoggedIn()">
 
@@ -11,6 +16,8 @@
 
   </div>
 
+  <!-- SALUDO SI ESTÁ LOGUEADO -->
+
   <div *ngIf="authService.isLoggedIn()">
 
     <p>
@@ -18,166 +25,200 @@
       {{ authService.getUserName() }}
     </p>
 
-    <!-- CHAT -->
+  </div>
 
-    <div class="chat-button-container">
+  <!-- CHAT Y RESULTADOS SOLO LOGUEADO -->
 
-      <ul>
+  <div
+    class="chat-button-container"
+    *ngIf="authService.isLoggedIn()"
+  >
 
-        <li
-          style="--i:#56CCF2;--j:#2F80ED;"
-          routerLink="/chat"
+    <ul>
+
+      <li
+    style="--i:#56CCF2;--j:#2F80ED;"
+    routerLink="/chat"
+  >
+
+    <span class="icon">💬</span>
+
+    <span class="title">
+      Chat
+    </span>
+
+  </li>
+
+  <!-- RESULTADOS -->
+
+  <li
+    style="--i:#27AE60;--j:#219653;"
+    routerLink="/resultados"
+  >
+
+    <span class="icon">📊</span>
+
+    <span class="title">
+      Resultados
+    </span>
+
+  </li>
+
+  <!-- ENCUESTA -->
+
+  <li
+    style="--i:#F2994A;--j:#F2C94C;"
+    routerLink="/encuesta"
+  >
+
+    <span class="icon">📝</span>
+
+    <span class="title">
+      Encuesta
+    </span>
+
+  </li>
+
+</ul>
+
+  </div>
+
+  <!-- JUEGOS -->
+
+  <div class="games-grid">
+
+    <!-- AHORCADO -->
+
+    <div class="card">
+
+      <img
+        src="assets/img/ahorcado.png"
+        alt="Ahorcado"
+      >
+
+      <div class="card__content">
+
+        <p class="card__title">
+          Ahorcado
+        </p>
+
+        <p class="card__description">
+
+          Descubre la palabra
+          seleccionando letras
+          del abecedario.
+
+        </p>
+
+        <button
+          [routerLink]="authService.isLoggedIn()
+            ? ['/juegos/ahorcado']
+            : ['/login']"
         >
+          Jugar
+        </button>
 
-          <span class="icon">💬</span>
-
-          <span class="title">
-            Chat
-          </span>
-
-        </li>
-
-        <!-- RESULTADOS -->
-    <li style="--i:#27AE60;--j:#219653;" routerLink="/resultados">
-      <span class="icon">📊</span>
-      <span class="title">Resultados</span>
-    </li>
-
-
-      </ul>
+      </div>
 
     </div>
 
-    <!-- JUEGOS -->
+    <!-- MAYOR MENOR -->
 
-    <div class="games-grid">
+    <div class="card">
 
-      <!-- AHORCADO -->
+      <img
+        src="assets/img/mayor-menor.png"
+        alt="Mayor o Menor"
+      >
 
-      <div class="card">
+      <div class="card__content">
 
-        <img
-          src="assets/img/ahorcado.png"
-          alt="Ahorcado"
+        <p class="card__title">
+          Mayor o Menor
+        </p>
+
+        <p class="card__description">
+
+          Adivina si la próxima carta
+          será mayor o menor.
+
+        </p>
+
+        <button
+          [routerLink]="authService.isLoggedIn()
+            ? ['/juegos/mayor-menor']
+            : ['/login']"
         >
-
-        <div class="card__content">
-
-          <p class="card__title">
-            Ahorcado
-          </p>
-
-          <p class="card__description">
-
-            Descubre la palabra
-            seleccionando letras
-            del abecedario.
-
-          </p>
-
-          <button
-            [routerLink]="['/juegos/ahorcado']"
-          >
-            Jugar
-          </button>
-
-        </div>
+          Jugar
+        </button>
 
       </div>
 
-      <!-- MAYOR MENOR -->
+    </div>
 
-      <div class="card">
+    <!-- PREGUNTADOS -->
 
-        <img
-          src="assets/img/mayor-menor.png"
-          alt="Mayor o Menor"
+    <div class="card">
+
+      <img
+        src="assets/img/preguntados.png"
+        alt="Preguntados"
+      >
+
+      <div class="card__content">
+
+        <p class="card__title">
+          Pokémon Trivia
+        </p>
+
+        <p class="card__description">
+
+          Responde preguntas
+          sobre el mundo Pokémon.
+
+        </p>
+
+        <button
+          [routerLink]="authService.isLoggedIn()
+            ? ['/juegos/preguntados']
+            : ['/login']"
         >
-
-        <div class="card__content">
-
-          <p class="card__title">
-            Mayor o Menor
-          </p>
-
-          <p class="card__description">
-
-            Adivina si la próxima carta
-            será mayor o menor.
-
-          </p>
-
-          <button
-            [routerLink]="['/juegos/mayor-menor']"
-          >
-            Jugar
-          </button>
-
-        </div>
+          Jugar
+        </button>
 
       </div>
 
-      <!-- PREGUNTADOS -->
+    </div>
 
-      <div class="card">
+    <!-- MONKEY JUMP -->
 
-        <img
-          src="assets/img/preguntados.png"
-          alt="Preguntados"
+    <div class="card">
+
+      <img
+        src="assets/img/monkey-jump.png"
+        alt="Monkey Jump"
+      >
+
+      <div class="card__content">
+
+        <p class="card__title">
+          Monkey Jump
+        </p>
+
+        <p class="card__description">
+
+          Salta obstáculos y
+          consigue el mejor puntaje.
+
+        </p>
+
+        <button
+          [routerLink]="authService.isLoggedIn()
+            ? ['/juegos/monkey-jump']
+            : ['/login']"
         >
-
-        <div class="card__content">
-
-          <p class="card__title">
-            Pokémon Trivia
-          </p>
-
-          <p class="card__description">
-
-            Responde preguntas
-            sobre el mundo Pokémon.
-
-          </p>
-
-          <button
-            [routerLink]="['/juegos/preguntados']"
-          >
-            Jugar
-          </button>
-
-        </div>
-
-      </div>
-
-      <!-- MONKEY JUMP -->
-
-      <div class="card">
-
-        <img
-          src="assets/img/monkey-jump.png"
-          alt="Monkey Jump"
-        >
-
-        <div class="card__content">
-
-          <p class="card__title">
-            Monkey Jump
-          </p>
-
-          <p class="card__description">
-
-            Salta obstáculos y
-            consigue el mejor puntaje.
-
-          </p>
-
-          <button
-            [routerLink]="['/juegos/monkey-jump']"
-          >
-            Jugar
-          </button>
-
-        </div>
+          Jugar
+        </button>
 
       </div>
 

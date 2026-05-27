@@ -1,0 +1,353 @@
+<div class="encuesta-container">
+
+  <h1>
+    Encuesta Gamer 🎮
+  </h1>
+
+  <div
+  *ngIf="esAdmin()"
+  class="admin-access"
+>
+
+  <a
+    routerLink="/admin-encuestas"
+    class="admin-btn"
+  >
+    📊 Ver Panel de Encuestas
+  </a>
+
+</div>
+
+  <div class="info-box">
+
+    ⚠️ Cada usuario puede responder
+    esta encuesta una sola vez.
+
+  </div>
+
+  <form
+    [formGroup]="encuestaForm"
+    (ngSubmit)="enviarEncuesta()"
+  >
+
+    <!-- NOMBRE -->
+
+    <div class="form-group">
+
+      <label>
+        Nombre
+      </label>
+
+      <input
+        type="text"
+        formControlName="nombre"
+      >
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('nombre')?.invalid
+        "
+      >
+        El nombre es obligatorio
+      </small>
+
+    </div>
+
+    <!-- APELLIDO -->
+
+    <div class="form-group">
+
+      <label>
+        Apellido
+      </label>
+
+      <input
+        type="text"
+        formControlName="apellido"
+      >
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('apellido')?.invalid
+        "
+      >
+        El apellido es obligatorio
+      </small>
+
+    </div>
+
+    <!-- EDAD -->
+
+    <div class="form-group">
+
+      <label>
+        Edad
+      </label>
+
+      <input
+        type="number"
+        formControlName="edad"
+      >
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('edad')?.invalid
+        "
+      >
+        Debe ser entre 18 y 99 años
+      </small>
+
+    </div>
+
+    <!-- TELÉFONO -->
+
+    <div class="form-group">
+
+      <label>
+        Teléfono
+      </label>
+
+      <input
+        type="text"
+        formControlName="telefono"
+      >
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('telefono')?.invalid
+        "
+      >
+        Solo números y máximo 10 caracteres
+      </small>
+
+    </div>
+
+    <!-- RADIO BUTTON -->
+
+    <div class="form-group">
+
+      <label>
+        Género favorito
+      </label>
+
+      <div class="radio-group">
+
+        <label>
+          <input
+            type="radio"
+            value="Acción"
+            formControlName="genero_favorito"
+          >
+          Acción
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            value="RPG"
+            formControlName="genero_favorito"
+          >
+          RPG
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            value="Deportes"
+            formControlName="genero_favorito"
+          >
+          Deportes
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            value="Terror"
+            formControlName="genero_favorito"
+          >
+          Terror
+        </label>
+
+      </div>
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('genero_favorito')?.invalid
+        "
+      >
+        Seleccioná un género
+      </small>
+
+    </div>
+
+    <!-- CHECKBOX -->
+
+    <div class="form-group">
+
+      <label>
+        ¿Qué valorás más en un juego?
+      </label>
+
+      <div class="checkbox-group">
+
+        <label>
+
+          <input
+            type="checkbox"
+            value="Historia"
+            (change)="manejarCheckbox($event)"
+          >
+
+          Historia
+
+        </label>
+
+        <label>
+
+          <input
+            type="checkbox"
+            value="Gráficos"
+            (change)="manejarCheckbox($event)"
+          >
+
+          Gráficos
+
+        </label>
+
+        <label>
+
+          <input
+            type="checkbox"
+            value="Gameplay"
+            (change)="manejarCheckbox($event)"
+          >
+
+          Gameplay
+
+        </label>
+
+        <label>
+
+          <input
+            type="checkbox"
+            value="Online"
+            (change)="manejarCheckbox($event)"
+          >
+
+          Online
+
+        </label>
+
+      </div>
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('aspectos_favoritos')?.invalid
+        "
+      >
+        Seleccioná al menos una opción
+      </small>
+
+    </div>
+
+    <!-- SELECT -->
+
+    <div class="form-group">
+
+      <label>
+        ¿Cuántas horas jugás por semana?
+      </label>
+
+      <select
+        formControlName="horas_juego"
+      >
+
+        <option value="">
+          Seleccionar
+        </option>
+
+        <option value="1-5">
+          1 a 5 horas
+        </option>
+
+        <option value="5-10">
+          5 a 10 horas
+        </option>
+
+        <option value="10-20">
+          10 a 20 horas
+        </option>
+
+        <option value="20+">
+          Más de 20 horas
+        </option>
+
+      </select>
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('horas_juego')?.invalid
+        "
+      >
+        Seleccioná una opción
+      </small>
+
+    </div>
+
+    <!-- TEXTAREA -->
+
+    <div class="form-group">
+
+      <label>
+        Top 3 Juegos Favoritos
+      </label>
+
+      <textarea
+        rows="5"
+        formControlName="comentario"
+      ></textarea>
+
+      <small
+        *ngIf="
+          enviado &&
+          encuestaForm.get('comentario')?.invalid
+        "
+      >
+        El comentario es obligatorio
+      </small>
+
+    </div>
+
+    <!-- BOTÓN -->
+
+    <button
+      type="submit"
+      [disabled]="guardando"
+    >
+
+      {{
+        guardando
+          ? 'Guardando...'
+          : 'Enviar Encuesta'
+      }}
+
+    </button>
+
+  </form>
+
+  <p
+    *ngIf="mensaje()"
+    class="mensaje"
+  >
+    {{ mensaje() }}
+  </p>
+
+</div>
+  

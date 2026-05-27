@@ -1,61 +1,87 @@
 <div class="resultados-container">
+
   <h1>Resultados</h1>
 
   <h2>Ahorcado</h2>
 
-<table>
+  <div class="tabla-scroll">
 
-  <tr>
-    <th>Usuario</th>
-    <th>Victorias consecutivas</th>
-  </tr>
+    <table>
 
-  <tr *ngFor="let r of ahorcado()">
-    <td>{{ r.usuario }}</td>
-    <td>{{ r.victorias_consecutivas }}</td>
-  </tr>
+      <tr>
+        <th>Usuario</th>
+        <th>Victorias consecutivas</th>
+      </tr>
 
-</table>
+      <tr *ngFor="let r of ahorcado()">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.victorias_consecutivas }}</td>
+      </tr>
+
+    </table>
+
+  </div>
 
   <h2>Mayor o Menor</h2>
 
-<table>
+  <div class="tabla-scroll">
 
-  <tr>
-    <th>Usuario</th>
-    <th>Cartas acertadas</th>
-  </tr>
+    <table>
 
-  <tr *ngFor="let r of mayorMenor()">
-    <td>{{ r.usuario }}</td>
-    <td>{{ r.cartas_acertadas }}</td>
-  </tr>
+      <tr>
+        <th>Usuario</th>
+        <th>Cartas acertadas</th>
+      </tr>
 
-</table>
+      <tr *ngFor="let r of mayorMenor()">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.cartas_acertadas }}</td>
+      </tr>
+
+    </table>
+
+  </div>
 
   <h2>Preguntados</h2>
 
-<table>
+  <div class="tabla-scroll">
 
-  <tr>
-    <th>Usuario</th>
-    <th>Puntaje</th>
-  </tr>
+    <table>
 
-  <tr *ngFor="let r of preguntados()">
-    <td>{{ r.usuario_email }}</td>
-    <td>{{ r.puntaje }}</td>
-  </tr>
+      <tr>
+        <th>Usuario</th>
+        <th>Puntaje</th>
+      </tr>
 
-</table>
+      <tr *ngFor="let r of preguntados()">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.puntaje }}</td>
+      </tr>
+
+    </table>
+
+  </div>
 
   <h2>Monkey Jump</h2>
-  <table>
-    <tr><th>Usuario</th><th>Puntaje</th><th>Tiempo</th></tr>
-    <tr *ngFor="let r of monkeyJump()">
-      <td>{{ r.usuario }}</td>
-      <td>{{ r.puntaje }}</td>
-      <td>{{ r.tiempo }}</td>
-    </tr>
-  </table>
+
+  <div class="tabla-scroll">
+
+    <table>
+
+      <tr>
+        <th>Usuario</th>
+        <th>Puntaje</th>
+        <th>Tiempo</th>
+      </tr>
+
+      <tr *ngFor="let r of monkeyJump()">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.puntaje }}</td>
+        <td>{{ r.tiempo }}</td>
+      </tr>
+
+    </table>
+
+  </div>
+
 </div>

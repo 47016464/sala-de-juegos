@@ -231,33 +231,36 @@ export class PreguntadosComponent implements OnInit {
   if (this.juegoTerminado) return;
 
   this.juegoTerminado = true;
+
   this.guardando = true;
 
   this.cd.detectChanges();
 
-  const datosPartida = {
-    usuario_email: this.authService.getUserName(),
-    puntaje: this.puntaje
-  };
+  const usuario =
+    this.authService.getUserName();
 
-  try {
+  const totalPreguntas =
+    this.numeroPregunta;
 
-    await this.supabaseService.guardarPreguntados(
-      datosPartida
+  const porcentaje =
+    totalPreguntas > 0
+      ? Math.round(
+          (this.puntaje / totalPreguntas) * 100
+        )
+      : 0;
+
+  await this.supabaseService
+    .guardarPreguntados(
+      usuario,
+      this.puntaje,
+      totalPreguntas,
+      porcentaje
     );
-
-  } catch (error) {
-
-    console.error(
-      'Error guardando resultado Preguntados:',
-      error
-    );
-
-  }
 
   this.guardando = false;
 
   this.cd.detectChanges();
+
 }
 
   reiniciar(): void {

@@ -1,25 +1,105 @@
-<div class="quien-soy-container" *ngIf="userData() as datos">
-  <h2>Quién Soy</h2>
-  <img [src]="datos.avatar_url" alt="Avatar" width="120" style="border-radius: 50%;">
-  <p><strong>Usuario:</strong> {{ datos.login }}</p>
-  <p><strong>Nombre:</strong> {{ datos.name }}</p>
-  <p><strong>Bio:</strong> {{ datos.bio }}</p>
-  <p><strong>Repos públicos:</strong> {{ datos.public_repos }}</p>
-  <p><strong>Seguidores:</strong> {{ datos.followers }}</p>
-  <p><strong>Siguiendo:</strong> {{ datos.following }}</p>
-  <a [href]="datos.html_url" target="_blank">Ver perfil en GitHub</a>
-  <!-- Juego propio -->
-  <h3>Mi Juego Propio</h3>
-  <p>
-    Elegí desarrollar un juego de <strong>Esquivar Cajas</strong>.  
-    El objetivo es moverte hacia la izquierda o derecha para evitar las cajas que caen desde la parte superior de la pantalla.
+<div
+  class="quien-soy-container"
+  *ngIf="userData() as datos"
+>
+
+  <h1 class="titulo-principal">
+    Quién Soy
+  </h1>
+
+  <img
+    [src]="datos.avatar_url"
+    alt="Avatar"
+    class="avatar"
+  >
+
+  <div class="datos-github">
+
+    <p>
+      <strong>Usuario:</strong>
+      {{ datos.login }}
+    </p>
+
+    <p>
+      <strong>Nombre:</strong>
+      {{ datos.name }}
+    </p>
+
+    <p>
+      <strong>Repos públicos:</strong>
+      {{ datos.public_repos }}
+    </p>
+
+    <p>
+      <strong>Seguidores:</strong>
+      {{ datos.followers }}
+    </p>
+
+    <p>
+      <strong>Siguiendo:</strong>
+      {{ datos.following }}
+    </p>
+
+    <a
+      [href]="datos.html_url"
+      target="_blank"
+      class="github-link"
+    >
+      Ver perfil en GitHub
+    </a>
+
+  </div>
+
+  <!-- JUEGO -->
+
+  <div class="juego-container">
+
+    <h2 class="titulo-juego">
+      Mi Juego Propio
+    </h2>
+
+    <h3 class="nombre-juego">
+      Monkey Jump
+    </h3>
+
+    <div class="juego-container">
+
+  <p class="descripcion-juego">
+
+    Monkey Jump es un juego arcade de habilidad
+    y reflejos donde controlás a un mono que debe
+    subir constantemente por plataformas para
+    conseguir el mayor puntaje posible.
+
   </p>
-  <p>
-    <strong>Cómo jugar:</strong><br>
-    - Usá las teclas de dirección (← →) para moverte.<br>
-    - Las cajas caen continuamente desde arriba.<br>
-    - Cada vez que una caja logra pasar la parte inferior de la pantalla sin chocar con vos, sumás <strong>1 punto</strong>.<br>
-    - Si una caja te golpea, el juego termina y aparece la opción de <em>"Retry"</em> para volver a intentarlo.<br>
-    - El objetivo es esquivar la mayor cantidad posible y alcanzar el puntaje más alto.
+
+  <p class="descripcion-juego">
+
+    El personaje puede moverse hacia la izquierda
+    y derecha utilizando los botones en pantalla,
+    permitiendo una experiencia simple y dinámica.
+
   </p>
+
+  <p class="descripcion-juego">
+
+    Una de las mecánicas principales del juego es
+    que el mono puede atravesar los bordes de la
+    pantalla: si sale por la derecha, reaparece
+    por la izquierda, y viceversa.
+
+  </p>
+
+  <p class="descripcion-juego">
+
+    Cada plataforma que desaparece por la parte
+    inferior de la pantalla suma <strong>50 puntos</strong>,
+    por lo que el objetivo es seguir avanzando,
+    reaccionar rápido y sobrevivir el mayor tiempo
+    posible para alcanzar un puntaje récord.
+
+  </p>
+
+</div>
+
 </div>

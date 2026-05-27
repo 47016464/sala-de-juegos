@@ -44,4 +44,50 @@ section, div, main {
   background: transparent;
 }
 
+.titulo-menu {
 
+  display: flex;
+
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 3rem;
+
+  font-weight: bold;
+
+  color: white;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.25),
+    0 0 20px rgba(255,255,255,0.15);
+
+  animation: glow 2s ease-in-out infinite alternate;
+
+  margin-bottom: 30px;
+
+}
+
+@keyframes glow {
+
+  from {
+
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.2),
+      0 0 20px rgba(255,255,255,0.1);
+
+  }
+
+  to {
+
+    text-shadow:
+      0 0 15px rgba(255,255,255,0.35),
+      0 0 30px rgba(255,255,255,0.2);
+
+  }
+
+}

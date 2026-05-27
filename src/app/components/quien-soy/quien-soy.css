@@ -1,26 +1,134 @@
 .quien-soy-container {
-  margin-top: 20px;
-  color: #000000;
+
+  margin-top: 30px;
+
   display: flex;
-  justify-content: center;   
-  align-items: center;       
-  flex-direction: column;    
-  text-align: center;        
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  color: white;
+
+  padding: 20px;
+
 }
 
-/* Datos de GitHub alineados a la izquierda */
+.titulo-principal {
+
+  font-size: 3rem;
+
+  margin-bottom: 25px;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.3);
+
+}
+
+.avatar {
+
+  width: 140px;
+
+  border-radius: 50%;
+
+  margin-bottom: 20px;
+
+  border: 3px solid white;
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.2);
+
+}
+
 .datos-github {
-  text-align: center; 
-  margin: 20px auto; 
+
+  margin-bottom: 40px;
+
 }
 
-.datos-github img {
-  display: block;
-  margin-bottom: 0 auto 10px auto; /* centra la imagen horizontalmente */
-}
 .datos-github p {
-  margin: 5px 0;
+
+  margin: 8px 0;
+
+  font-size: 1.1rem;
+
 }
-section, div, main {
+
+.github-link {
+
+  display: inline-block;
+
+  margin-top: 15px;
+
+  color: #58a6ff;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: 0.3s ease;
+
+}
+
+.github-link:hover {
+
+  transform: scale(1.05);
+
+}
+
+.juego-container {
+
+  max-width: 750px;
+
+  background: rgba(255,255,255,0.05);
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.3);
+
+}
+
+.titulo-juego {
+
+  font-size: 2.2rem;
+
+  margin-bottom: 10px;
+
+}
+
+.nombre-juego {
+
+  font-size: 1.6rem;
+
+  color: #ffd166;
+
+  margin-bottom: 20px;
+
+}
+
+.descripcion-juego {
+
+  font-size: 1.15rem;
+
+  line-height: 1.9;
+
+  color: #e0e0e0;
+
+  text-align: justify;
+
+}
+
+section,
+div,
+main {
+
   background: transparent;
+
 }
